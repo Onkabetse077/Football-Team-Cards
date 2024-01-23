@@ -177,3 +177,17 @@ Object.freeze(myFavoriteFootballTeam);
 
 //Variables
 const {sport,team,year,players} = myFavoriteFootballTeam;//Object destructuring
+const {coachName} = myFavoriteFootballTeam.headCoach;
+
+//Text Content
+typeOfSport.textContent = sport;
+teamName.textContent = team;
+worldCupYear.textContent = year;
+headCoach.textContent = coachName;
+
+//Functions
+const setPlayerCards = (arr = players) =>{
+  playerCards.innerHTML += arr.map(() => {
+
+  })
+}

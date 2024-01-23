@@ -111,3 +111,59 @@ Rewrite the two lines of code below using the new destructuring syntax. Your ans
 
 //Step 19
 Next, add the year and players to your destructuring assignment.
+
+//Step 20
+Now you need to access the coachName value from the myFavoriteFootballTeam.headCoach object using the destructuring syntax.
+
+//Step 21
+Now you need to start displaying the team's information on the screen.
+
+Below your destructuring assignments, assign the sport variable to typeOfSport.textContent.
+
+Once you complete that task, you should see the result in the preview window.
+
+//Step 22
+Next, assign the team variable to teamName.textContent.
+
+//Step 23
+Assign the year variable to worldCupYear.textContent.
+
+Below that, assign the coachName variable to headCoach.textContent.
+
+You should now see all of that information displayed on the screen below Team stats.
+
+//Step 24
+Now you will start building out the function that will show player cards based on the selections made by the user in the Filter Teammates dropdown menu.
+
+Start by creating an empty arrow function called setPlayerCards. You do not need to add a parameter because that will be taken care of in the next step.
+
+//Step 25
+Function parameters can be initialized with default values.
+If a function is called without an argument, then the default value will be used:
+
+const greeting = (name = "Anonymous") => {
+return "Hello " + name;
+}
+
+console.log(greeting("John")); // Hello John
+console.log(greeting()); // Hello Anonymous
+Add a new parameter to your setPlayerCards function called arr and assign it a default value of players.
+
+//Step 26
+The next step is to create a new array that will be responsible for adding the player card information to the page.
+
+Inside the setPlayerCards function, start by adding the map method to arr that will take in an empty callback function.
+Then, use the addition assignment += operator to assign the new array to playerCards.innerHTML.
+
+Remember that the innerHTML property gets, or in this case, sets the HTML markup for the playerCards element.
+
+//Step 27
+arr contains a series of objects that each contains a name, position, number, isCaptain and nickname property.
+In order to access each of those properties inside the callback function, you will need to use object destructuring to unpack them into variables.
+
+Here is an example:
+
+function myExampleFunction({ name, age, job, city }) {
+
+}
+Inside the parameter list in the callback function for the map method, unpack all 5 object properties from objects in arr using object destructuring.
