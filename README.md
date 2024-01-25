@@ -178,4 +178,54 @@ function myExampleFunction({ name, age, job, city }) {
 }
 Inside the parameter list in the callback function for the map method, unpack all 5 object properties from objects in arr using object destructuring.
 
-//
+//Step 28
+Inside the body of the callback function, you will need to add template literals `` which will contain the HTML content for the player cards.
+
+Inside the template literals, add an empty div with a class of player-card.
+
+//Step 29
+Inside the div, add an h2 element which contains the name parameter. Since you are working with template literals, you will need to use an embedded expression for the name parameter:
+
+${expression goes here}
+
+//Step 30
+The next step would be to display the word (Captain) next to the player if they are listed as a captain for the team.
+
+Right next to the ${name} expression, add a new embedded expression. Inside that expression, use a ternary operator to check if isCaptain is true. If so, return (Captain) otherwise return an empty string.
+
+//Step 31
+Below the h2 element, add a paragraph element with the text Position: and an embedded expression that contains the position parameter.
+
+//Step 32
+Below the paragraph element, add another paragraph element with the text Number: and an embedded expression that contains the number parameter.
+
+//Step 33
+Below your existing paragraph elements, add another paragraph element with the text Nickname: .
+
+//Step 34
+Next to the Nickname: text, add an embedded expression that will show the player's nickname if they have one.
+
+Use a ternary operator to check if nickname is not null. If the player has a nickname, display nickname otherwise display "N/A".
+
+//Step 35
+The .map() method will return a new array of player-card items separated by commas.
+
+To remove the commas between each player-card so it does not show up on screen, chain the .join() method to the .map() method. Pass an empty string as the argument for the .join() method.
+
+//Step 36
+The next step is to create a function that will detect when a user makes a selection from the playersDropdownList.
+
+Use the .addEventListener() method on playersDropdownList. Inside the event listener, pass in a change event type and an empty callback function.
+
+
+//Step 37
+For the callback function, pass in e as a parameter.
+
+e represents an object which contains the information for that event.
+
+//Step 38
+Inside the callback function, add a console.log with the value of e.target.value.
+
+Open the console, and make a selection from the teammates dropdown menu. You should see the value of that selection in the console.
+
+e.target.value represents the value property from the playersDropdownList element. In future steps, you will use this value to show player cards based on the position they play.
