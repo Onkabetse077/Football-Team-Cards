@@ -8,30 +8,30 @@ const playersDropdownList = document.getElementById("players");
 
 //Objects
 const myFavoriteFootballTeam = {
-  team : "Argentina",
-  sport : "Football",
-  year : "1986",
-  isWorldCupWinner : true,
+  team: "Argentina",
+  sport: "Football",
+  year: 1986,
+  isWorldCupWinner: true,
   headCoach: {
     coachName: "Carlos Bilardo",
     matches: 7,
   },
-  players : [
+  players: [
     {
       name: "Sergio Almirón",
       position: "forward",
       number: 1,
       isCaptain: false,
-      nickname: null
+      nickname: null,
     },
     {
       name: "Sergio Batista",
       position: "midfielder",
       number: 2,
       isCaptain: false,
-      nickname: null
+      nickname: null,
     },
-    {
+     {
       name: "Ricardo Bochini",
       position: "midfielder",
       number: 3,
@@ -171,7 +171,7 @@ const myFavoriteFootballTeam = {
       isCaptain: false,
       nickname: null,
     },
-  ]
+  ],
 };
 Object.freeze(myFavoriteFootballTeam);
 
@@ -186,20 +186,54 @@ worldCupYear.textContent = year;
 headCoach.textContent = coachName;
 
 //Functions
-const setPlayerCards = (arr = players) =>{
-  playerCards.innerHTML += arr.map(({name,position,number,isCaptain,nickname}) => {
-    `
-    <div class = "player-card"
-    <h2>${name} ${isCaptain ? "(Captain)" : ""}</h2>
-    <p>Position: ${position}</p>
-    <p>Number: ${number}</p>
-    <p>Nickname: ${nickname !== null ? nickname : "N/A"}</p>
-    </div>
-    `
-  }).join("");
+const setPlayerCards = (arr = players) => {
+  playerCards.innerHTML += arr
+    .map(
+      ({ name, position, number, isCaptain, nickname }) =>
+        `
+        <div class="player-card">
+          <h2>${name} ${isCaptain ? "(Captain)" : ""}</h2>
+          <p>Position: ${position}</p>
+          <p>Number: ${number}</p>
+          <p>Nickname: ${nickname !== null ? nickname : "N/A"}</p>
+        </div>
+      `
+    )
+    .join("");
 };
 
 //Event Listeners
 playersDropdownList.addEventListener("change",(e)=>{
-  console.log(e.target.value);
+  playerCards.innerHTML = "";
+
+  switch (e.target.value) {
+    case "nickname":
+      //implicitly return
+      setPlayerCards(players.filter((player)=> player.nickname !== null));
+      break;
+  
+      case "forward":
+        //implicitly return
+        setPlayerCards(players.filter((player)=> player.position === "forward"));
+        break;
+
+        case "midfielder":
+        //implicitly return
+        setPlayerCards(players.filter((player)=> player.position === "midfielder"));
+        break;
+
+        case "defender":
+        //implicitly return
+        setPlayerCards(players.filter((player)=> player.position === "defender"));
+        break;
+
+        case "goalkeeper":
+        //implicitly return
+        setPlayerCards(players.filter((player)=> player.position === "goalkeeper"));
+        break;
+
+        default:
+          setPlayerCards();
+          break;
+  }
 });

@@ -229,3 +229,57 @@ Inside the callback function, add a console.log with the value of e.target.value
 Open the console, and make a selection from the teammates dropdown menu. You should see the value of that selection in the console.
 
 e.target.value represents the value property from the playersDropdownList element. In future steps, you will use this value to show player cards based on the position they play.
+
+//Step 39
+Remove the console.log statement you created in the previous step.
+
+The next step would be to reset the content for the playerCards element.
+
+Inside the callback function, access the innerHTML property of the playerCards element and assign it a value of an empty string.
+
+//Step 40
+The next step would be to add a switch statement which will check for the user's selection from the player dropdown menu and filter out cards based on the player's positions.
+
+Add a switch statement and use e.target.value for the expression.
+
+//Step 41
+If the user selects Nicknames from the dropdown menu you will want to filter out player cards that have a nickname.
+
+Start by adding a case clause for nickname inside your switch statement.
+
+//Step 42
+Call the setPlayerCards function with an argument of players.filter().
+
+Inside the filter method, add a callback function with a parameter called player and implicitly return player.nickname is not null.
+
+//Step 43
+Before you can move onto the next case, you will need to add a break statement.
+
+Below your setPlayerCards call, add a break statement.
+
+//Step 44
+Next, add a case clause for forward.
+
+Inside that case, call the setPlayerCards function with an argument of players.filter().
+
+Inside the filter() method, add a callback function with a parameter of player that will check if player.position equals forward.
+
+Lastly, add a break statement below the setPlayerCards function call.
+
+//Step 45
+Add a new case for midfielder that checks if player.position equals midfielder following the same pattern from the previous step.
+
+//Step 46
+Add a new case for defender that checks if player.position equals defender following the same pattern as the previous step.
+
+//Step 47
+Add a new case for goalkeeper that checks if player.position equals goalkeeper following the same pattern as the previous step.
+
+//Step 48
+The final step is to add a default clause if none of the other case clauses match the user selection.
+
+For the default clause, call the setPlayerCards function without any arguments passed in.
+
+Test out your dropdown menu, and you should see the player cards be filtered out by position or nickname.
+
+Congratulations on completing the football team cards project!
